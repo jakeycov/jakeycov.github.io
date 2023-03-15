@@ -45,6 +45,12 @@ body {
   max-width: 400px;
   height: 300px; /* Set the card height to 300 pixels */
   overflow-y: auto;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+.message-card.flip {
+  transform: rotateY(180deg);
 }
 
 .headline {

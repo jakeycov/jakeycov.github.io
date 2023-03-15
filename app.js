@@ -1,115 +1,93 @@
-const messages = {
-  motivational: [
-    {
-      headline: "Believe in Yourself",
-      sentence: "Your self-confidence is a powerful force; trust your abilities and you will succeed."
-    },
-    {
-      headline: "Perseverance Pays Off",
-      sentence: "Great achievements come from persistence and hard work; never give up on your dreams."
-    },
-    {
-      headline: "Stay Positive",
-      sentence: "Focus on the positives and maintain a winning mindset even during difficult matches."
-    },
-    {
-      headline: "Overcome Challenges",
-      sentence: "Embrace adversity as an opportunity to grow and improve your game."
-    },
-    {
-      headline: "Learn from Losses",
-      sentence: "Treat each defeat as a chance to learn and come back stronger next time."
-    },
-  ],
-  technical: [
-    {
-      headline: "Consistency is Key",
-      sentence: "Strive to hit each ball with precision and control, building a reliable foundation for your game."
-    },
-    {
-      headline: "Master Your Footwork",
-      sentence: "Good footwork is the foundation of great tennis; keep moving and stay on your toes."
-    },
-    {
-      headline: "Follow Through",
-      sentence: "A smooth, fluid follow-through is essential for generating power and control in your shots."
-    },
-    {
-      headline: "Vary Your Shots",
-      sentence: "Keep your opponent guessing by mixing up your shots, spins, and tactics."
-    },
-    {
-      headline: "Serve Smart",
-      sentence: "Focus on placement and consistency when serving to create pressure and gain an advantage."
-    },
-  ],
-  mental: [
-    {
-      headline: "Stay Present",
-      sentence: "Concentrate on the current point, letting go of past mistakes and future outcomes."
-    },
-    {
-      headline: "Calm Under Pressure",
-      sentence: "Embrace high-pressure situations and remain composed to make better decisions on the court."
-    },
-    {
-      headline: "Visualize Success",
-      sentence: "Regularly imagine yourself succeeding in matches to help build confidence and mental strength."
-    },
-    {
-      headline: "Set Realistic Goals",
-      sentence: "Break down your aspirations into achievable short-term and long-term goals to stay motivated."
-    },
-    {
-      headline: "Stay Patient",
-      sentence: "Understand that progress takes time; focus on steady improvement and trust the process."
-    },
-  ],
-};
+const messageCard = document.querySelector(".message-card");
+const headline = document.querySelector(".headline");
+const sentence = document.querySelector(".sentence");
+const btn = document.querySelector(".btn");
+const categoryButtons = document.querySelector(".category-buttons");
 
-const headlineEl = document.querySelector(".headline");
-const sentenceEl = document.querySelector(".sentence");
-const btnEl = document.querySelector(".btn");
-const categoryButtonsEl = document.querySelector(".category-buttons");
+const messages = [
+  {
+    category: "focus",
+    headline: "Focus on the Process",
+    sentence: "Remember, it's not about winning or losing, but about playing your best.",
+  },
+  {
+    category: "focus",
+    headline: "Stay Present",
+    sentence: "Don't dwell on past mistakes or future outcomes. Focus on the current point.",
+  },
+  {
+    category: "confidence",
+    headline: "Believe in Yourself",
+    sentence: "You've trained hard for this. Trust your skills and play with confidence.",
+  },
+  {
+    category: "confidence",
+    headline: "Stay Positive",
+    sentence: "Keep a positive attitude, even when things get tough. It can make all the difference.",
+  },
+  {
+    category: "strategy",
+    headline: "Play Smart",
+    sentence: "Think about your opponent's weaknesses and use them to your advantage.",
+  },
+  {
+    category: "strategy",
+    headline: "Adapt and Overcome",
+    sentence: "Be prepared to adjust your game plan as needed to handle unexpected challenges.",
+  },
+  // Add more messages as needed
+];
 
-let currentCategory = "motivational";
+let currentCategory = "focus";
 
-function createCategoryButton(category) {
-  const button = document.createElement("button");
-  button.textContent = category;
-  button.classList.add("category-btn");
+function displayNewMessage() {
+  const filteredMessages = messages.filter(
+    (message) => message.category === currentCategory
+  );
+  const randomIndex = Math.floor(Math.random() * filteredMessages.length);
+  const randomMessage = filteredMessages[randomIndex];
+  headline.textContent = randomMessage.headline;
+  sentence.textContent = randomMessage.sentence;
 
-  if (category === currentCategory) {
-    button.classList.add("active");
-  }
+  // Add the flip class to create the flip effect
+  messageCard.classList.add("flip");
 
-  button.addEventListener("click", () => {
-    // Deselect the previously active button
-    const activeButton = categoryButtonsEl.querySelector(".category-btn.active");
-    if (activeButton) {
-      activeButton.classList.remove("active");
+  // Remove the flip class after the animation is complete (0.6s in this case)
+  setTimeout(() => {
+    messageCard.classList.remove("flip");
+  }, 600);
+}
+
+function changeCategory(category) {
+  currentCategory = category;
+  displayNewMessage();
+}
+
+function createCategoryButtons() {
+  const categories = Array.from(new Set(messages.map((message) => message.category)));
+  categories.forEach((category) => {
+    const button = document.createElement("button");
+    button.textContent = category;
+    button.classList.add("category-btn");
+    button.addEventListener("click", () => {
+      changeCategory(category);
+
+      // Set the active class for the selected category button
+      document.querySelectorAll(".category-btn").forEach((btn) => {
+        btn.classList.remove("active");
+      });
+      button.classList.add("active");
+    });
+
+    if (category === currentCategory) {
+      button.classList.add("active");
     }
 
-    // Select the clicked button and update the current category
-    button.classList.add("active");
-    currentCategory = category;
-    displayMessage();
+    categoryButtons.appendChild(button);
   });
-
-  categoryButtonsEl.appendChild(button);
 }
 
-function displayMessage() {
-  const randomIndex = Math.floor(Math.random() * messages[currentCategory].length);
-  const message = messages[currentCategory][randomIndex];
+btn.addEventListener("click", displayNewMessage);
 
-  headlineEl.textContent = message.headline;
-  sentenceEl.textContent = message.sentence;
-}
-
-Object.keys(messages).forEach(createCategoryButton);
-
-btnEl.addEventListener("click", displayMessage);
-
-// Display an initial message
-displayMessage();
+createCategoryButtons();
+displayNewMessage();
