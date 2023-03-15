@@ -1,12 +1,69 @@
 const messages = {
   motivational: [
-    // Add motivational messages here
+    {
+      headline: "Believe in Yourself",
+      sentence: "Your self-confidence is a powerful force; trust your abilities and you will succeed."
+    },
+    {
+      headline: "Perseverance Pays Off",
+      sentence: "Great achievements come from persistence and hard work; never give up on your dreams."
+    },
+    {
+      headline: "Stay Positive",
+      sentence: "Focus on the positives and maintain a winning mindset even during difficult matches."
+    },
+    {
+      headline: "Overcome Challenges",
+      sentence: "Embrace adversity as an opportunity to grow and improve your game."
+    },
+    {
+      headline: "Learn from Losses",
+      sentence: "Treat each defeat as a chance to learn and come back stronger next time."
+    },
   ],
   technical: [
-    // Add technical messages here
+    {
+      headline: "Consistency is Key",
+      sentence: "Strive to hit each ball with precision and control, building a reliable foundation for your game."
+    },
+    {
+      headline: "Master Your Footwork",
+      sentence: "Good footwork is the foundation of great tennis; keep moving and stay on your toes."
+    },
+    {
+      headline: "Follow Through",
+      sentence: "A smooth, fluid follow-through is essential for generating power and control in your shots."
+    },
+    {
+      headline: "Vary Your Shots",
+      sentence: "Keep your opponent guessing by mixing up your shots, spins, and tactics."
+    },
+    {
+      headline: "Serve Smart",
+      sentence: "Focus on placement and consistency when serving to create pressure and gain an advantage."
+    },
   ],
   mental: [
-    // Add mental messages here
+    {
+      headline: "Stay Present",
+      sentence: "Concentrate on the current point, letting go of past mistakes and future outcomes."
+    },
+    {
+      headline: "Calm Under Pressure",
+      sentence: "Embrace high-pressure situations and remain composed to make better decisions on the court."
+    },
+    {
+      headline: "Visualize Success",
+      sentence: "Regularly imagine yourself succeeding in matches to help build confidence and mental strength."
+    },
+    {
+      headline: "Set Realistic Goals",
+      sentence: "Break down your aspirations into achievable short-term and long-term goals to stay motivated."
+    },
+    {
+      headline: "Stay Patient",
+      sentence: "Understand that progress takes time; focus on steady improvement and trust the process."
+    },
   ],
 };
 
