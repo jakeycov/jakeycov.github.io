@@ -1,5 +1,24 @@
 const messages = [
-  // ...
+  {
+    headline: "Embrace Non-Judgmental Awareness",
+    sentence: "Observe your actions without judgment, and turn mistakes into valuable learning experiences.",
+  },
+  {
+    headline: "Focus on the Present Moment",
+    sentence: "Stay grounded in the here and now, letting go of the past and future to fully engage with each point.",
+  },
+  {
+    headline: "Trust Your Instincts",
+    sentence: "Believe in your abilities and allow your intuitive reactions to guide you on the court.",
+  },
+  {
+    headline: "Develop a Pre-Point Routine",
+    sentence: "Find consistency and focus through a simple routine before each point, helping you stay composed.",
+  },
+  {
+    headline: "Enjoy the Journey",
+    sentence: "Approach each match with positivity, and remember that growth comes from both victories and setbacks.",
+  }
 ];
 
 const opponentTypes = [
@@ -57,8 +76,10 @@ function displayOpponentFocus() {
 }
 
 btnEl.addEventListener("click", displayMessage);
-opponentSelect.addEventListener("change", displayOpponentFocus);
 
-// Display initial message and opponent focus
+// Add event listener and call it initially to set the focus points
+opponentSelect.addEventListener("change", displayOpponentFocus);
+opponentSelect.dispatchEvent(new Event("change"));
+
+// Display initial message
 displayMessage();
-displayOpponentFocus();
