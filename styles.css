@@ -2,7 +2,7 @@ body {
   font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start; /* Align the container to the top of the page */
   align-items: center;
   height: 100vh;
   margin: 0;
@@ -14,17 +14,16 @@ body {
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start; /* Align the content to the top of the container */
   align-items: center;
-  height: auto; /* Change the height to auto */
+  height: auto;
   width: 100%;
   max-width: 600px;
-  background-color: #240046; /* Purple */
+  background-color: #3C6F91; /* Purple */
   border-radius: 8px;
   box-shadow: none;
   padding: 1rem 1rem 2rem 1rem;
 }
-
 
 .title {
   margin-bottom: 1.5rem;
@@ -44,7 +43,7 @@ body {
   align-items: center;
   width: 80%;
   max-width: 400px;
-  max-height: 50%;
+  height: 300px; /* Set the card height to 300 pixels */
   overflow-y: auto;
 }
 
