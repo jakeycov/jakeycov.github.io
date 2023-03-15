@@ -60,3 +60,23 @@ body {
 .btn:hover {
   background-color: #0056b3;
 }
+.category-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.category-btn {
+  background-color: #007bff;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  margin: 0 0.5rem 0.5rem 0.5rem;
+}
+
+.category-btn:hover {
+  background-color: #0056b3;
+}

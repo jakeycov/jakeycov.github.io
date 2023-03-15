@@ -1,37 +1,44 @@
-const messages = [
-  {
-    headline: "Embrace Non-Judgmental Awareness",
-    sentence: "Observe your actions without judgment, and turn mistakes into valuable learning experiences.",
-  },
-  {
-    headline: "Focus on the Present Moment",
-    sentence: "Stay grounded in the here and now, letting go of the past and future to fully engage with each point.",
-  },
-  {
-    headline: "Trust Your Instincts",
-    sentence: "Believe in your abilities and allow your intuitive reactions to guide you on the court.",
-  },
-  {
-    headline: "Develop a Pre-Point Routine",
-    sentence: "Find consistency and focus through a simple routine before each point, helping you stay composed.",
-  },
-  {
-    headline: "Enjoy the Journey",
-    sentence: "Approach each match with positivity, and remember that growth comes from both victories and setbacks.",
-  }
-];
+const messages = {
+  motivational: [
+    // Add motivational messages here
+  ],
+  technical: [
+    // Add technical messages here
+  ],
+  mental: [
+    // Add mental messages here
+  ],
+};
 
 const headlineEl = document.querySelector(".headline");
 const sentenceEl = document.querySelector(".sentence");
 const btnEl = document.querySelector(".btn");
+const categoryButtonsEl = document.querySelector(".category-buttons");
+
+let currentCategory = "motivational";
+
+function createCategoryButton(category) {
+  const button = document.createElement("button");
+  button.textContent = category;
+  button.classList.add("category-btn");
+
+  button.addEventListener("click", () => {
+    currentCategory = category;
+    displayMessage();
+  });
+
+  categoryButtonsEl.appendChild(button);
+}
 
 function displayMessage() {
-  const randomIndex = Math.floor(Math.random() * messages.length);
-  const message = messages[randomIndex];
+  const randomIndex = Math.floor(Math.random() * messages[currentCategory].length);
+  const message = messages[currentCategory][randomIndex];
 
   headlineEl.textContent = message.headline;
   sentenceEl.textContent = message.sentence;
 }
+
+Object.keys(messages).forEach(createCategoryButton);
 
 btnEl.addEventListener("click", displayMessage);
 
