@@ -16,7 +16,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: auto; /* Change the height to auto */
   width: 100%;
   max-width: 600px;
   background-color: #240046; /* Purple */
@@ -24,6 +24,7 @@ body {
   box-shadow: none;
   padding: 1rem 1rem 2rem 1rem;
 }
+
 
 .title {
   margin-bottom: 1.5rem;
