@@ -103,4 +103,13 @@ function displayMessage() {
   const randomIndex = Math.floor(Math.random() * messages[currentCategory].length);
   const message = messages[currentCategory][randomIndex];
 
-  headlineEl.textContent = message.head
+  headlineEl.textContent = message.headline;
+  sentenceEl.textContent = message.sentence;
+}
+
+Object.keys(messages).forEach(createCategoryButton);
+
+btnEl.addEventListener("click", displayMessage);
+
+// Display an initial message
+displayMessage();
