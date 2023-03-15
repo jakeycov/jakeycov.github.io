@@ -6,7 +6,7 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
-  background-color: #3C6F91; /* Purple */
+  background-color: #240046; /* Purple */
   padding: 1rem;
 }
 
@@ -19,7 +19,7 @@ body {
   height: 100%;
   width: 100%;
   max-width: 600px;
-  background-color: #3C6F91; /* Purple */
+  background-color: #240046; /* Purple */
   border-radius: 8px;
   box-shadow: none;
   padding: 1rem 1rem 2rem 1rem;
