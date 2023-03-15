@@ -79,7 +79,19 @@ function createCategoryButton(category) {
   button.textContent = category;
   button.classList.add("category-btn");
 
+  if (category === currentCategory) {
+    button.classList.add("active");
+  }
+
   button.addEventListener("click", () => {
+    // Deselect the previously active button
+    const activeButton = categoryButtonsEl.querySelector(".category-btn.active");
+    if (activeButton) {
+      activeButton.classList.remove("active");
+    }
+
+    // Select the clicked button and update the current category
+    button.classList.add("active");
     currentCategory = category;
     displayMessage();
   });
@@ -91,13 +103,4 @@ function displayMessage() {
   const randomIndex = Math.floor(Math.random() * messages[currentCategory].length);
   const message = messages[currentCategory][randomIndex];
 
-  headlineEl.textContent = message.headline;
-  sentenceEl.textContent = message.sentence;
-}
-
-Object.keys(messages).forEach(createCategoryButton);
-
-btnEl.addEventListener("click", displayMessage);
-
-// Display an initial message
-displayMessage();
+  headlineEl.textContent = message.head

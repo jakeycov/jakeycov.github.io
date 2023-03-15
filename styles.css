@@ -80,3 +80,6 @@ body {
 .category-btn:hover {
   background-color: #0056b3;
 }
+.category-btn.active {
+  background-color: #0056b3;
+}
